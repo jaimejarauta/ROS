@@ -1,2 +1,0 @@
-ros_package
--DCATKIN_DEVEL_PREFIX=/home/jaimejarauta/ros_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jaimejarauta/ros_ws/install -G Unix Makefiles
