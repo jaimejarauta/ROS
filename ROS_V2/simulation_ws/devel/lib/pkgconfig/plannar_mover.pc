@@ -1,0 +1,8 @@
+prefix=/home/jaimejarauta/simulation_ws/devel
+
+Name: plannar_mover
+Description: Description of plannar_mover
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp gazebo_ros controller_manager joint_state_publisher robot_state_publisher rospy rviz std_msgs
