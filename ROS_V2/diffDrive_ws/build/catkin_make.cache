@@ -1,2 +1,0 @@
-DiffDriveRobot/simulation_environment
--DCATKIN_DEVEL_PREFIX=/home/jaimejarauta/diffDrive_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jaimejarauta/diffDrive_ws/install -G Unix Makefiles
