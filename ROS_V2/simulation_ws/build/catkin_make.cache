@@ -1,0 +1,2 @@
+plannar_mover/plannar_mover
+-DCATKIN_DEVEL_PREFIX=/home/jaimejarauta/simulation_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jaimejarauta/simulation_ws/install -G Unix Makefiles
