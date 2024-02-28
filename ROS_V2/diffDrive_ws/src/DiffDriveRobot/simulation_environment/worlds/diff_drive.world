@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="diff_drive_world">
+  
+    <!-- Add ground plane -->
+    <include>
+        <uri>model://ground_plane</uri>
+        <material>
+            <script>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+        </material>
+    </include>
+
+    <!-- Global Light Source -->
+    <include>
+        <uri>model://sun</uri>
+    </include>
+
+    <!-- Seet up the solver used for simulation -->
+    <physics name="ode_70iters" type="ode">
+      <real_time_update_rate>1500</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>70</iters>
+        </solver>
+      </ode>
+    </physics>  
+  </world>
+</sdf>
