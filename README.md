@@ -77,6 +77,10 @@ Focuses on automating the movement process and applying ML controls to the car.
 - Tries to simulate gusts of wind
 - Tries to include change of color of car depending on forward/backward acceleration
 
+#### models
+- Folder of the models and the necessary files to run them used in all simulations (ROS V1-V3)
+- Types of files used - .obj .stl .dae .material .jpg/.png 
+
 #### How to Run (for each version, open each line in a new terminal window)
 ```bash
 cd ~/catkin_ws # or cd ~/catkin_ws_flat for the flat version
