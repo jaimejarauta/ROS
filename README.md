@@ -63,6 +63,20 @@ Focuses on automating the movement process and applying ML controls to the car.
   - **catkin_ws_flat**: Runs the script without the hill to observe linear speed changes without external perturbations.
   - **catkin_ws**: Runs the script with the hill.
 
+#### ROS_V3.4
+- Includes a new profile which represents better the mountain in the ML policies video
+- Includes a flag to the destination point
+- Has to yet control the car in order to prevent angular movement when the car is close to speed 0
+
+- Available in two versions:
+  - **catkin_ws_big**: has the whole mountain profile as the hill
+  - **catkin_ws_small**: has the small mountain profile as the hill
+
+#### ROS_V3.5
+- In progress
+- Tries to simulate gusts of wind
+- Tries to include change of color of car depending on forward/backward acceleration
+
 #### How to Run (for each version, open each line in a new terminal window)
 ```bash
 cd ~/catkin_ws # or cd ~/catkin_ws_flat for the flat version

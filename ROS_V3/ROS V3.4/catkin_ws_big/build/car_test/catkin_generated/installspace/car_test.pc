@@ -1,0 +1,8 @@
+prefix=/home/jaimejarauta/catkin_ws2/install
+
+Name: car_test
+Description: Description of car_test
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
