@@ -66,11 +66,17 @@ Focuses on automating the movement process and applying ML controls to the car.
 #### ROS_V3.4
 - Includes a new profile which represents better the mountain in the ML policies video
 - Includes a flag to the destination point
-- Has to yet control the car in order to prevent angular movement when the car is close to speed 0
+
+- Includes 3 different policies
+  - **Policy 1**: applies force only when to the right of the hill and positive velocity
+  - **Policy 2**: applies positive force when robot has positive velocity
+  - **Policy 3**: applies positive force when robot has positive velocity, and negative force when negative velocity
+
 
 - Available in two versions:
   - **catkin_ws_big**: has the whole mountain profile as the hill
-  - **catkin_ws_small**: has the small mountain profile as the hill
+  - **catkin_ws**: has the small mountain profile as the hill
+  - **catkin_ws_flat**: moves the robot in a flat surface
 
 #### ROS_V3.5
 - In progress
