@@ -1,4 +1,4 @@
-prefix=/home/jaimejarauta/catkin_ws2/install
+prefix=/home/jaimejarauta/catkin_ws_big/install
 
 Name: car_test
 Description: Description of car_test

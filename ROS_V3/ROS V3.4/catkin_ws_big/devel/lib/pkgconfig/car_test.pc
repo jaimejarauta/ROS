@@ -1,4 +1,4 @@
-prefix=/home/jaimejarauta/catkin_ws2/devel
+prefix=/home/jaimejarauta/catkin_ws_big/devel
 
 Name: car_test
 Description: Description of car_test

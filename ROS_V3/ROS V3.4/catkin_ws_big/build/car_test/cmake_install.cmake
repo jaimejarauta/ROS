@@ -1,8 +1,8 @@
-# Install script for directory: /home/jaimejarauta/catkin_ws2/src/car_test
+# Install script for directory: /home/jaimejarauta/catkin_ws_big/src/car_test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/jaimejarauta/catkin_ws2/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jaimejarauta/catkin_ws_big/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jaimejarauta/catkin_ws2/build/car_test/catkin_generated/installspace/car_test.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jaimejarauta/catkin_ws_big/build/car_test/catkin_generated/installspace/car_test.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/car_test/cmake" TYPE FILE FILES
-    "/home/jaimejarauta/catkin_ws2/build/car_test/catkin_generated/installspace/car_testConfig.cmake"
-    "/home/jaimejarauta/catkin_ws2/build/car_test/catkin_generated/installspace/car_testConfig-version.cmake"
+    "/home/jaimejarauta/catkin_ws_big/build/car_test/catkin_generated/installspace/car_testConfig.cmake"
+    "/home/jaimejarauta/catkin_ws_big/build/car_test/catkin_generated/installspace/car_testConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/car_test" TYPE FILE FILES "/home/jaimejarauta/catkin_ws2/src/car_test/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/car_test" TYPE FILE FILES "/home/jaimejarauta/catkin_ws_big/src/car_test/package.xml")
 endif()
 

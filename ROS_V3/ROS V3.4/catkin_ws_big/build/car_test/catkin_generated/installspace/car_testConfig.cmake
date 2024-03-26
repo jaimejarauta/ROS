@@ -67,14 +67,14 @@ set(car_test_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(car_test_SOURCE_PREFIX /home/jaimejarauta/catkin_ws2/src/car_test)
-  set(car_test_DEVEL_PREFIX /home/jaimejarauta/catkin_ws2/devel)
+  set(car_test_SOURCE_PREFIX /home/jaimejarauta/catkin_ws_big/src/car_test)
+  set(car_test_DEVEL_PREFIX /home/jaimejarauta/catkin_ws_big/devel)
   set(car_test_INSTALL_PREFIX "")
   set(car_test_PREFIX ${car_test_DEVEL_PREFIX})
 else()
   set(car_test_SOURCE_PREFIX "")
   set(car_test_DEVEL_PREFIX "")
-  set(car_test_INSTALL_PREFIX /home/jaimejarauta/catkin_ws2/install)
+  set(car_test_INSTALL_PREFIX /home/jaimejarauta/catkin_ws_big/install)
   set(car_test_PREFIX ${car_test_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/jaimejarauta/catkin_ws2/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/jaimejarauta/catkin_ws_big/install/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

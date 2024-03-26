@@ -4,6 +4,7 @@ from nav_msgs.msg import Odometry
 from tf.transformations import euler_from_quaternion
 from geometry_msgs.msg import Point, Twist
 from numpy import arctan2
+import time
 
 x = 0
 y = 0
@@ -34,7 +35,7 @@ pub = rospy.Publisher("/car/diff_drive_controller/cmd_vel", Twist, queue_size = 
 speed = Twist()
 
 goal = Point()
-goal.x = 25
+goal.x = 180
 goal.y = 0
 
 def goTo(goal):
@@ -45,6 +46,9 @@ def goTo(goal):
     global pub
     global speed
     global base_theta
+
+    speed.linear.x = 0.2
+    time.sleep(1)
 
     arrived = False
     while not arrived and not rospy.is_shutdown():
@@ -57,12 +61,12 @@ def goTo(goal):
 
         if abs(angle_to_goal - theta) > 0.25:
             speed.angular.z = (angle_to_goal - theta) * correction_factor
-            speed.linear.x = 0.1 if speed.linear.x >= 0 else -0.1
+            speed.linear.x = 0.1 if speed.linear.x >= 0.2 else -0.1
         else:
-            if speed.linear.x >= 0: 
-                speed.linear.x = speed.linear.x + 0.01
+            if speed.linear.x >= 0.2: 
+                speed.linear.x = speed.linear.x + 0.1
             else:
-                 speed.linear.x = speed.linear.x - 0.01
+                 speed.linear.x = speed.linear.x - 0.1
                  
             speed.angular.z = heading_error * correction_factor
 
