@@ -1,0 +1,2 @@
+car_test
+-DCATKIN_DEVEL_PREFIX=/home/jaimejarauta/catkin_ws_flat/devel -DCMAKE_INSTALL_PREFIX=/home/jaimejarauta/catkin_ws_flat/install -G Unix Makefiles
