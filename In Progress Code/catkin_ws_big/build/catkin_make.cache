@@ -1,2 +1,0 @@
-car_test
--DCATKIN_DEVEL_PREFIX=/home/jaimejarauta/catkin_ws_big/devel -DCMAKE_INSTALL_PREFIX=/home/jaimejarauta/catkin_ws_big/install -G Unix Makefiles
