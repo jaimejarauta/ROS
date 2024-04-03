@@ -53,7 +53,7 @@ def goTo(goal):
         angle_to_goal = arctan2(inc_y, inc_x)
 
         heading_error = base_theta - theta
-        correction_factor = 0.1
+        correction_factor = 0.5
 
         if abs(angle_to_goal - theta) > 0.25:
             speed.angular.z = (angle_to_goal - theta) * correction_factor
@@ -67,8 +67,8 @@ def goTo(goal):
             speed.angular.z = heading_error * correction_factor
 
         if abs(inc_x) <1:
-        	arrived = True
-        	print("destination reached!")
+            arrived = True
+            print("destination reached!")
              
         pub.publish(speed)
 

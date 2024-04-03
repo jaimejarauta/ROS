@@ -20,10 +20,10 @@ car:
      # Velocity and acceleration limits for the robot
      linear:
        x:
-         has_velocity_limits    : true
-         max_velocity           : 10  # m/s
-         has_acceleration_limits: true
-         max_acceleration       : 2   # m/s^2
+         has_velocity_limits    : false
+         max_velocity           : 1000  # m/s
+         has_acceleration_limits: false
+         max_acceleration       : 1000   # m/s^2
      angular:
        z:
          has_velocity_limits    : true

@@ -44,8 +44,9 @@ def goTo(goal):
             speed.linear.x = speed.linear.x - 0.04
 
         if abs(inc_x) <1:
-        	arrived = True
-        	print("destination reached!")
+            arrived = True
+            print("destination reached!")
+            
         pub.publish(speed)
 
 
