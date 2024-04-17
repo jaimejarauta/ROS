@@ -13,7 +13,9 @@ initial_heading = None
 current_yaw = 0.0
 
 def model_states_callback(msg):
+    # Extracting the car's state from the ModelStates message provided by Gazebo
     global x, gazebo_speed, initial_heading, current_yaw
+    
     # Assuming the car's index is 2 in the ModelStates message
     car_index = 2
 
@@ -21,13 +23,16 @@ def model_states_callback(msg):
     x = msg.pose[car_index].position.x
     gazebo_speed = msg.twist[car_index].linear.x
 
+    # Convert quaternion orientation to Euler angles for yaw calculation
     orientation_q = msg.pose[car_index].orientation
     _, _, current_yaw = euler_from_quaternion([orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w])
 
+    # Set the initial heading the first time a message is received
     if initial_heading is None:
         initial_heading = current_yaw
 
 def clear_screen():
+    # Set the initial heading the first time a message is received
     os.system('clear')  # Use 'cls' for Windows
 
 # Initialize the ROS node

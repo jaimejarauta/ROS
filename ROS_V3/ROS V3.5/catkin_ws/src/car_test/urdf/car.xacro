@@ -30,8 +30,9 @@
 <xacro:property name="wheel_height" value="0.8"/>
 <xacro:property name="wheel_mass" value="1"/>
 
-
 <!-- /////////////////////////////////////////////////////-->
+
+<!-- Macro for computing cylinder inertia, useful for dynamic simulations -->
 <xacro:macro name="cylinder_inertia" params ="m r h">
   <inertial>
    <mass value="${m}"/>
@@ -43,6 +44,7 @@
 
 <!-- ///////////////////////////////////////////////////-->
 
+<!-- Macro to provide a simple inertial matrix for parts -->
 <xacro:macro name= "inertial_matrix" params="mass">
   <inertial>
     <mass value="${mass}"/>
@@ -93,7 +95,9 @@
     <material>Gazebo/Red</material>
   </gazebo>
 
-<!-- ///////////////////      Wheels      ///////////////////////   -->
+<!-- //////////////////////////////////////////   -->
+
+<!-- wheels-->
 
 <xacro:macro name="wheel" params= "prefix suffix X Y Z">
   <link name= "${prefix}_${suffix}_w">
@@ -109,6 +113,7 @@
   <xacro:cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_width}"/>
   </link>
         
+<!-- friction parameters-->        
 <gazebo reference ="${prefix}_${suffix}_w">
     <mu1 value="1000000.0"/>
     <mu2 value="1000000.0"/>

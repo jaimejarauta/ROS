@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# This is the original script to move the robot by setting it a goal (works best on flat surface as seen using rviz)
+
 import rospy
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
