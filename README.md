@@ -74,8 +74,8 @@ Focuses on automating the movement process and applying ML controls to the car.
 
 
 - Available in two versions:
-  - **catkin_ws_big**: has the whole mountain profile as the hill
-  - **catkin_ws**: has the small mountain profile as the hill
+  - **catkin_ws_big**: has the big mountain profile as the hill
+  - **catkin_ws**: has the small mountain profile as the hill (0.25 scale in z axis)
   - **catkin_ws_flat**: moves the robot in a flat surface
 
 #### ROS_V3.5
@@ -106,4 +106,6 @@ rosrun car_test car_position_listener.py
 # To run the python policy scripts
 source devel/setup.bash
 rosrun car_test code_PX.py # code_P1.py - code_P2.py - code_P3.py
+
+REMEMBER TO INLCUDE THE MODELS FOLDER IN /usr/share/gazebo-11/ DIRECTORY
 ```

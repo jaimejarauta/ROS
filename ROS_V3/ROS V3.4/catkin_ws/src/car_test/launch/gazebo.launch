@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-
-<!-- these are the arguments you can pass this launch file, for example paused:=true -->
+<!-- Configuration of simulation parameters and robot model -->
 <arg name="paused" default="false"/>
 <arg name="use_sim_time" default="true"/>
 <arg name="gui" default="true"/>
@@ -11,24 +10,23 @@
 <arg name="model" default="$(find car_test)/urdf/car.xacro"/>
 <arg name="hill" default="$(find car_test)/models/hill"/>
 <arg name="world_file" default="/home/jaimejarauta/catkin_ws/src/car_test/worlds/my_mesh.world"/>
-<!-- We resume the logic in empty_world.launch -->
+<!-- Edit with path to world file  -->
 
+<!-- Include the Gazebo simulation environment with specific configurations -->
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
-<arg name="world_name" value="$(find car_test)/worlds/my_mesh.world"/>
-<arg name="debug" value="$(arg debug)" />
-<arg name="gui" value="$(arg gui)" />
-<arg name="paused" value="$(arg paused)"/>
-<arg name="use_sim_time" value="$(arg use_sim_time)"/>
-<arg name="headless" value="$(arg headless)"/>
+  <arg name="world_name" value="$(arg world_file)"/>
+  <arg name="debug" value="$(arg debug)" />
+  <arg name="gui" value="$(arg gui)" />
+  <arg name="paused" value="$(arg paused)"/>
+  <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+  <arg name="headless" value="$(arg headless)"/>
 </include>
 
-<!-- Load the URDF into the ROS Parameter Server -->
-
+<!-- Load the URDF description of the robot from the specified model file -->
 <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
 
-<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-
+<!-- Spawn the robot model in Gazebo using the provided parameters -->
 <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-  args="-x -31.75 -y 0 -z 10 -unpause -urdf -model car -param robot_description"/>
+  args="-x -15 -y 0 -z 4 -unpause -urdf -model car -param robot_description"/>
  
 </launch>

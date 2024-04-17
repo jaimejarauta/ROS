@@ -1,3 +1,4 @@
+# File to open RViz simulator
 Panels:
   - Class: rviz/Displays
     Help Height: 78
