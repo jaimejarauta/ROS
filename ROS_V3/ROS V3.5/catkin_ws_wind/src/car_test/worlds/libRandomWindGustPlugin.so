@@ -1,0 +1,65 @@
+#include <gazebo/gazebo.hh>
+#include <gazebo/physics/physics.hh>
+#include <ignition/math/Vector3.hh>
+#include <random>
+#include <chrono>
+
+namespace gazebo
+{
+  class RandomWindGustPlugin : public WorldPlugin
+  {
+    private: physics::WorldPtr world;
+    private: event::ConnectionPtr updateConnection;
+    private: std::default_random_engine generator;
+    private: std::uniform_real_distribution<double> distribution;
+    private: std::uniform_int_distribution<int> timeDistribution;
+    private: double windStrength;
+    private: ignition::math::Vector3d windDirection;
+    private: int nextUpdateTime;
+
+    public: RandomWindGustPlugin() : distribution(0.0, 20.0), timeDistribution(1, 3)
+    {
+      // Initialize the random seed
+      this->generator.seed(std::chrono::system_clock::now().time_since_epoch().count());
+      this->nextUpdateTime = 0;
+      this->windStrength = 0.0;
+      this->windDirection = ignition::math::Vector3d(1, 0, 0);
+    }
+
+    public: void Load(physics::WorldPtr _world, sdf::ElementPtr /*_sdf*/)
+    {
+      this->world = _world;
+
+      // Connect to the world update event
+      this->updateConnection = event::Events::ConnectWorldUpdateBegin(
+          std::bind(&RandomWindGustPlugin::OnUpdate, this));
+    }
+
+    public: void OnUpdate()
+    {
+      // Get the simulation time
+      int currentTime = (int)this->world->SimTime().Sec();
+
+      if (currentTime >= nextUpdateTime)
+      {
+        // Generate a random wind strength and direction
+        this->windStrength = this->distribution(this->generator);
+        double angle = this->distribution(this->generator) * 2.0 * M_PI / 20.0;
+        this->windDirection = ignition::math::Vector3d(cos(angle), sin(angle), 0);
+
+        // Apply the wind force to all models
+        for (auto model : this->world->Models())
+        {
+          ignition::math::Vector3d force = this->windDirection * this->windStrength;
+          model->AddForce(force);
+        }
+
+        // Set the next update time
+        nextUpdateTime = currentTime + this->timeDistribution(this->generator);
+      }
+    }
+  };
+
+  // Register this plugin with the simulator
+  GZ_REGISTER_WORLD_PLUGIN(RandomWindGustPlugin)
+}
